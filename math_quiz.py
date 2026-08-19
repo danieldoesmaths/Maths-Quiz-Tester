@@ -43,6 +43,16 @@ def addition(number, number_1, number_2):
     else:
         print("Incorrect!")
         return False
+    
+def subtraction(number,number_1,number_2):
+    value = number_1 - number_2
+    answer = int(input(f"Question {number}: What is {number_1} - {number_2}? : "))
+    if answer == value:
+        print("Correct!")
+        return True
+    else:
+        print("Incorrect!")
+        return False
 
 while True:
     print("\nWelcome to the Maths Timetable Quiz!")
@@ -53,6 +63,7 @@ while True:
             "Which operation would you like to be tested on?"
             "\n\t1. Addition"
             "\n\t2. Multiplication"
+            "\n\t3. Subtraction"
             "\n"
         ))
         if operation == 1:
@@ -99,7 +110,29 @@ while True:
                     score += 1
             print(f"\nYou scored {score}/{questions}")
             break
+        
+        elif operation == 3:
+            while True:
+                smallest = smallest_number()
+                largest = largest_number()
+                if check_range(smallest, largest):
+                    break
+                print(
+                    "Error: The largest number must be greater "
+                    "than the smallest number."
+                )
 
+            questions = number_of_questions()
+            for number in range(1, questions + 1):
+                number_1 , number_2 = generate_question(
+                    smallest,
+                    largest
+                )
+                if subtraction(number, number_1, number_2):
+                    score += 1
+            print(f"\nYou scored {score}/{questions}")
+            break
+            
         else:
             print("Incorrect response. Shutting down quiz...")
             break
