@@ -1,2 +1,2 @@
-# Maths-Quiz-Tester
-    A Python maths quiz project built from scratch and developed progressively to test my python fundamentals.
+# Projects
+    A variety of Python projects built from scratch to test my python fundamentals.
